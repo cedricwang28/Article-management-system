@@ -44,8 +44,8 @@ router.post('/login', function(req, res, next) {
   //   })
   // })
 
-  LoginCheck.find(data).then((data)=>{
-    if(data.length>0){
+  LoginCheck.find(data).then((v)=>{
+    if(v.length>0){
       req.session.username = data.username
       res.redirect('/')
     }else{
@@ -56,10 +56,10 @@ router.post('/login', function(req, res, next) {
 
 })
 
-// // exit
-// router.get('/logout', function(req, res, next) {
-//   req.session.username = null
-//   res.redirect('/login')
-// })
+
+router.get('/logout', function(req, res, next) {
+  req.session.username = null
+  res.redirect('/login')
+})
 
 module.exports = router;

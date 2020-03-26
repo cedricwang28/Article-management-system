@@ -3,7 +3,8 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  var username = req.session.username
+  res.render('index', {username: username});
 });
 
 router.get('/register', function(req, res, next) {
