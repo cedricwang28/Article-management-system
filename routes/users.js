@@ -1,6 +1,7 @@
 let express = require('express');
 let router = express.Router();
-let LoginCheck = require('../model.js');
+let Model = require('../model.js');
+let LoginCheck = Model.LoginCheck
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');

@@ -7,6 +7,7 @@ let session = require('express-session');
 
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
+let articleRouter = require('./routes/article');
 
 const connectDB = require('./connection.js');
 
@@ -46,6 +47,8 @@ app.get('*', function(req, res, next) {
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/article', articleRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
