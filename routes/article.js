@@ -19,5 +19,13 @@ router.post('/add',function(req,res,next){
 })
 
 
+router.get('/delete',function(req,res,next){
+  let id = parseInt(req.query.id)
+  let page = req.query.page;
+  Article.deleteOne({id:id}).then((data)=>{
+    res.redirect('/?page='+page);
+  });
+})
+
 
 module.exports = router;
