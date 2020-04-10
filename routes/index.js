@@ -51,16 +51,17 @@ router.get('/login', function(req, res, next) {
 
 router.get('/write', function(req, res, next) {
   let username = req.session.username
-  let id = parseInt(req.query.page)
-  console.log(id,'iddd');
-  
+  let id = parseInt(req.query.id)
   let page = req.query.page
+  
+  console.log(id,'sdfasfd');
+  
   let item = {
     title:'',
     content: ''
   }
   if(id){ 
-    Article.find({id:id}).then(function(item){
+    Article.findOne({id:id},function(err,item){
       item['page'] = page
       res.render('write', {username: username, item:item})
     })
