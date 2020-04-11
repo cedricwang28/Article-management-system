@@ -73,4 +73,15 @@ router.get('/write', function(req, res, next) {
   
 })
 
+
+router.get('/detail',function(req,res,next){
+  let id = parseInt(req.query.id)
+  let username = req.session.username || ""
+  Article.findOne({id:id},function(err,item){
+    item['time'] = moment(item.id).format('YYYY-MM-DD HH:mm:ss')
+    res.render('detail',{item:item, username:username})
+  })
+  
+})
+
 module.exports = router;

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>detail</title>
+    <%- include head %>
+</head>
+<body>
+    <%- include('bar', {username: username}) %>
+
+    <div class="detail">
+        <div class="title"><%=item.title%></div>
+        <div class="desc">
+            <span>Author: <%=item.username%></span>
+            <span>Publish Time: <%=item.time%></span>
+        </div>
+        <div class="content"><%-item.content%></div>
+    </div>
+</body>
+</html>
