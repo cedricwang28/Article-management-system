@@ -12,13 +12,18 @@ router.post('/register', function(req, res, next) {
   var data = {
     username: req.body.username,
     password: req.body.password,
-    // password2: req.body.password2
+    password2: req.body.password2
   }
 
-  LoginCheck.create(data).then((data)=>{
+  if(data.password == data.password2){
+    LoginCheck.create(data).then((data)=>{
     
-    res.redirect('/login')
-  });   
+      res.redirect('/login')
+    });   
+  }else{
+    res.redirect('/register');
+  }
+  
 
 
 })
